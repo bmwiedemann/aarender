@@ -8,6 +8,8 @@ sub loadimg($)
 { my $filename = shift;
     my $img = new Image::Magick;
     $img->Read($filename);
+    my $s = $ENV{SIZE}//415;
+    $img->Resize(width=>$s, height=>$s);
     my ($w,$h)=$img->Get('columns','rows');
     my @p=$img->GetPixels(
             width=>$w,
