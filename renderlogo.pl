@@ -26,6 +26,7 @@ sub loadimg($)
 
 our $font=loadfont("bold.huge.png");
 our $img = loadimg("Slowroll-logo.png");
+our $gamma = $ENV{GAMMA}//-0.14;
 
 sub trychar($$)
 { my ($start, $char) = @_;
@@ -34,7 +35,7 @@ sub trychar($$)
     foreach my $rowpix (@$c) {
         my $pos = $start;
         foreach my $pix (@$rowpix) {
-            $match -= ($pix-$img->{pixel}[$pos++])**2;
+            $match -= abs($pix-$img->{pixel}[$pos++]+$gamma)**2;
         }
         $start += $img->{width};
     }
