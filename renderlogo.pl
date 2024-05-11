@@ -43,6 +43,7 @@ sub trychar($$)
 
 my $xn=int($img->{width} / $font->{cwidth});
 my $yn=int($img->{height} / $font->{cheight});
+print "\033[1m"; # bold
 for my $y (0..$yn-1) {
     for my $x (0..$xn-1) {
         my $start = $x * $font->{cwidth} + $y * $font->{cheight} * $img->{width};
@@ -57,4 +58,4 @@ for my $y (0..$yn-1) {
     }
     print "\n";
 }
-
+print "\033[0m\n"; # normal
