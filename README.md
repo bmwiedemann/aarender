@@ -7,23 +7,37 @@ and check which one matches best.
 
 ## Sample output
 
-    $ GAMMA=-0.15 SIZE=413 ./renderlogo.pl
-                  _,,yyyyyy,_
-              jgMMMMM@@P@MMMMMMgy_
-           jMMMP~             ~~MMMg
-         jMMP                     ~MMg
-       j@MP                         "MMg
-      jMM`         jggMMMMgy_         $Mg
-     jMM        jgMMP~~~~~~MMMg        VMg
-     MMF       jMM`          MM@        MML
-    jMM       jM@             ]M@       ]M&
+    $ GAMMA=-0.15 SIZE=413 ./renderlogo.pl | tee Slowroll-logo.txt
+                   ,.yyyyyy,_
+              ,gMMMMMMMMMMMMMMMgy
+           jgMMM~             ~9MM@g
+         j@M@~                    9MMg
+        gM@                         ~MMg
+      jMMF         _jgggggy,          @Mk
+      MMF        gMMM@~~~MMMMg,        @Mk
+     gMF       jMMP         "@Mg        MML
+    jMM       jMM             VMg       ]M&
+    jMB       #MF              MM       jMM
     ]M&       MML              MML      jMM
-    ]M&       VMk              MML      jMM
-     MML       @Mg_           jM@       #MF
-     VMM        "MMMMMr      jMM       jMM
-      @MMg                  gMM       jMMF
-       $MMMg_            ,gMM~       jMM'
-        "MMMMMMgyy..yygMMM@~       jMM@
-          ~MMN2~MMMMM@~~        _gMM@`
-            ~MMMMgy,_      _.ggMMM~
-                ~MMMMMMMMMMMM@~~
+    ]MM       `MM,            jMM       jM@
+     MMk       `@M@gy.        @MF       MMF
+     `MMg         ~MMM       @MF       jMV
+      ]MMMg                gMM"       gM@
+       `MMMMgy_        ,yMMM~       j@MP
+         MMMMMMMMMMMMMMMMP~       jgMM`
+           9MMgy~~~~~~         ,gMMM~
+             ~MMMMMgyyy,,yyggMMMM~
+                 ~~~MMMMMMMP~~
+
+
+    $ GAMMA=-0.25 SIZE=210 ./renderlogo.pl
+         ,ymmmmmy,
+      ,mP~       ~*m_
+     jP     _,_     \g
+    jF    mP~~~~m    ]k
+    M    M       M    M
+    M    &       #L   M
+    @L   `Mmp   j@    @
+     @g,      ,dP   ,@
+      ~M@MmmMP~   ,mP
+        ~*@myygm#P~
