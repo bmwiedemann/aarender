@@ -26,8 +26,8 @@ sub loadimg($)
     }
 }
 
-our $font=loadfont("bold.huge.png");
-our $img = loadimg("Slowroll-logo.png");
+our $font = loadfont($ENV{FONT}//"bold.huge.png");
+our $img = loadimg($ENV{IMG}//"Slowroll-logo.png");
 our $gamma = $ENV{GAMMA}//-0.14;
 
 sub trychar($$)
