@@ -26,7 +26,7 @@ sub loadfont($)
         my @cp = ();
         for my $row (0..$ch-1) {
             my $start = ($y*$ch + $row)*$w + $x*$cw;
-            die "c=$c i=$i ($y*$ch + $row)*$w + $x*$cw" if($start>19200); # sanity
+            die "sanity check failed: c=$c i=$i ($y*$ch + $row)*$w + $x*$cw" if($start>$w*$h);
             push @cp, [@p[$start..$start+$cw-1]];
         }
         $char{$c} = \@cp;
