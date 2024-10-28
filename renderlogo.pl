@@ -3,6 +3,7 @@ use strict;
 use Image::Magick;
 use lib "lib";
 use font;
+binmode(STDOUT, ":utf8");
 
 sub loadimg($)
 { my $filename = shift;
