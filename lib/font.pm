@@ -5,10 +5,9 @@ sub loadfont($)
     my $img = new Image::Magick;
     $img->Read($filename);
     my ($w,$h)=$img->Get('columns','rows');
-    if(($w%32) != 0  or ($h%3) != 0) {
-        die "sanity check failed for $filename"
+    if(($w%32) != 0) {
+        die "sanity check failed for $filename: w=$w h=$h"
     }
-    my ($cw, $ch) = ($w/32, $h/3); # character pixel width+height
     my @p=$img->GetPixels(
             width=>$w,
             height=>$h,
@@ -19,8 +18,16 @@ sub loadfont($)
     );
     #die "$w $h $cw $ch ". scalar(@p); # debug
     my %char=();
-    for my $c (32..126) {
-        my $i=$c-32;
+    my $start=32;
+    my $end=$start+94;
+    my ($cw, $ch) = ($w/32, $h/3); # character pixel width+height
+    if($filename=~/U([0-9a-f]+)-(\d+)/) {
+        $start = hex($1);
+        $end = $start + $2 - 1;
+        $ch = $h/($2/32);
+    }
+    for my $c ($start..$end) {
+        my $i=$c-$start;
         my $y=int($i/32);
         my $x=$i%32;
         my @cp = ();
