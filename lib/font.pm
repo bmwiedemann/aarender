@@ -19,12 +19,12 @@ sub loadfont($)
     #die "$w $h $cw $ch ". scalar(@p); # debug
     my %char=();
     my $start=32;
-    my $end=$start+94;
+    my $end=$start+95;
     my ($cw, $ch) = ($w/32, $h/3); # character pixel width+height
     if($filename=~/U([0-9a-f]+)-(\d+)/) {
         $start = hex($1);
         $end = $start + $2 - 1;
-        $ch = $h/($2/32);
+        $ch = $h/(($2+31)/32);
     }
     for my $c ($start..$end) {
         my $i=$c-$start;
@@ -36,6 +36,7 @@ sub loadfont($)
             die "sanity check failed: c=$c i=$i ($y*$ch + $row)*$w + $x*$cw" if($start>$w*$h);
             push @cp, [@p[$start..$start+$cw-1]];
         }
+        if($c == $end) {$c=32}
         $char{$c} = \@cp;
     }
     return {
